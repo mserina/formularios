@@ -1,0 +1,21 @@
+<form [formGroup]="perfilForm" (ngSubmit)="onSubmit()">
+  <label for="nombre">Nombre: </label>
+  <input id="nombre" type="text" formControlName="nombre">
+  <label for="apellidos">Apelllidos: </label>
+  <input id="apellidos" type="text" formControlName="apellidos">
+  <label for="edad">Edad: </label>
+  <input id="edad" type="text" formControlName="edad">
+  <div formGroupName="direccion">
+    <h2>Dirección</h2>
+    <label for="calle">Calle: </label>
+    <input id="calle" type="text" formControlName="calle">
+    <label for="localidad">Localidad: </label>
+    <input id="localidad" type="text" formControlName="localidad">
+    <label for="provincia">Provincia: </label>
+    <input id="provincia" type="text" formControlName="provincia">
+    <label for="codPostal">Código Postal: </label>
+    <input id="codPostal" type="text" formControlName="codPostal">
+  </div>
+  <button type="submit">Enviar</button>
+  <button type="button" (click)="actualiza()">Actualizar</button>
+</form>

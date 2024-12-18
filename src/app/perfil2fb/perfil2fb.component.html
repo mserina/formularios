@@ -1,0 +1,47 @@
+<div [formGroup]="profileForm">
+  <label for="nombre">Nombre: </label>
+  <input id="nombre" type="text" formControlName="nombre">
+  @if (profileForm.controls['nombre'].hasError('required')) {
+    <span style="color: red;">*</span>
+  }
+
+  <br>
+  <label for="apellidos">Apelllidos: </label>
+  <input id="apellidos" type="text" formControlName="apellidos">
+  <!-- <br>
+  <label for="edad">Edad: </label>
+  <input id="edad" type="text" formControlName="edad"> -->
+<br>
+  <label for="email">Email</label>
+  <input id="email" formControlName="email">
+  @if (profileForm.controls['email'].hasError('required')) {
+    <span style="color: red;">*</span>
+  }
+  @if (profileForm.controls['email'].hasError('email')) {
+    <span style="color: red;">El correo debe tener formato de email</span>
+  }
+  <div formGroupName="direccion">
+    <h2>Dirección</h2>
+    <div>
+      <label for="calle">Calle: </label>
+      <input id="calle" type="text" formControlName="calle">
+    </div>
+    <div>
+    <label for="localidad">Localidad: </label>
+    <input id="localidad" type="text" formControlName="localidad">
+    </div>
+    <div>
+      <label for="provincia">Provincia: </label>
+      <input id="provincia" type="text" formControlName="provincia">
+    </div>
+    <div>
+      <label for="codPostal">Código Postal: </label>
+      <input id="codPostal" type="text" formControlName="codPostal">
+    </div>
+
+  </div>
+  <button [disabled]="profileForm.invalid " (click)="onSubmit()">Enviar</button>
+  <!-- <button type="button" (click)="actualiza()">Actualizar</button> -->
+</div>
+
+<p>{{profileForm.status}}  </p>
